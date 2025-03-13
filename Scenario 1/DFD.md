@@ -1,4 +1,4 @@
-'''mermaid
+```mermaid
 erDiagram
     USER }|..|{ Patient : “Uses”
     CUSTOMER ||--o{ ORDER : places
