@@ -22,3 +22,38 @@ Once access is gained, the attacker establishes a foothold within the Solari Hea
 
 ### Actions on Objectives
 With access to the Solari Health 360 application, the attacker can exfiltrate sensitive health data stored within the application’s database. Additionally, the attacker may manipulate patient records, tamper with medical information, or disrupt the application’s functionality for malicious purposes.
+
+```mermaid
+flowchart TD
+    %% Define colors for different attack stages
+    style Origins fill:#F4D03F,stroke:#000,stroke-width:2px
+    style Reconnaissance fill:#F5B041,stroke:#000,stroke-width:2px
+    style Weaponization fill:#EB984E,stroke:#000,stroke-width:2px
+    style Delivery fill:#E59866,stroke:#000,stroke-width:2px
+    style Exploitation fill:#DC7633,stroke:#000,stroke-width:2px
+    style Installation fill:#CA6F1E,stroke:#000,stroke-width:2px
+    style Actions_Objectives fill:#BA4A00,stroke:#000,stroke-width:2px
+    style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
+
+    %% Attack Sequence
+    Origins[Origins] -->|Identify CareConnect360 as a target for phishing| Reconnaissance[Reconnaissance]
+    Reconnaissance -->|Gather employee emails, spoof domain, create fake login pages| Weaponization[Weaponization]
+    Weaponization -->|Craft phishing emails with malicious links or attachments| Delivery[Delivery]
+    Delivery -->|Send phishing emails impersonating IT support, HR, or executives| Exploitation[Exploitation]
+    Exploitation -->|User enters credentials on fake login page or downloads malware| Installation[Installation]
+    Installation -->|Deploy keyloggers, steal credentials, or establish C2 connection| Actions_Objectives[Actions on Objectives]
+    Actions_Objectives -->|Use credentials for unauthorized access, data theft, or lateral movement| Actions_Objectives
+
+    %% MITRE ATT&CK Techniques
+    subgraph MITRE_Attack[MITRE ATT&CK Techniques]
+    style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
+    Reconnaissance -->|T1598 - Phishing for Information| MITRE
+    Weaponization -->|T1566.001 - Spearphishing with Links| MITRE
+    Weaponization -->|T1566.002 - Spearphishing with Attachments| MITRE
+    Delivery -->|T1071 - Application Layer Protocol| MITRE
+    Exploitation -->|T1059.003 - Command and Scripting Interpreter| MITRE
+    Installation -->|T1105 - Ingress Tool Transfer| MITRE
+    Actions_Objectives -->|T1078 - Valid Accounts (Credential Theft)| MITRE
+    Actions_Objectives -->|T1565 - Data Manipulation| MITRE
+    Actions_Objectives -->|T1486 - Data Encrypted for Impact (Ransomware Deployment)| MITRE
+    end
