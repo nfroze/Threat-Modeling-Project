@@ -1,39 +1,78 @@
-# AI Threat Modelling Workshop Summary.
-## Introduction
-A 3 Hour threat modelling workshop took place to detail the runbook scenario of multiple AI attacks against the web-facing health care application Solaris Care Connect 360..
-## Attendess
-Care Connect Eng team, Product Managers, DevEx Engineers and the DevSecOps Team.
-## Scope
-4 Scenarios were run covering: (1) Phising attack (2) Ransomware attack (3) Insider attack (4) SQL Injection attack.
-## Methodology
-All scenarios were run against the cyber attack killchain, utilising the Mitre Att&ack methods and STRIDE for control gap assessments. Culminating in identified risks.
-## Conclusion
-A total of 4 high risks and 3 medium risks were found during the threat modelling workshop.
-## Controls Required
-- Regular security audits specifically targeting the Solaris Health 360 application to detect vulnerabilities and weaknesses in its security measures.
-- Patch management to ensure the Solari Health 360 application and its underlying technologies are up-to-date and protected against known vulnerabilities.
-- Comprehensive employee training on phishing awareness to educate users of the Solaris Health 360 application about the risks of phishing attacks and how to identify and report suspicious emails.
-- Implementation of a Web Application Firewall (WAF) tailored to the Solari Health 360 application’s traffic to monitor and filter incoming requests for malicious activity.
-- Deployment of Multi-factor Authentication (MFA) to enhance authentication security and prevent unauthorized access to the Solari Health 360 application.
-- Continuous network traffic monitoring to detect and respond to suspicious activity within the Solari Health 360 application’s infrastructure.
-- Implementation of Role-based Access Control (RBAC) within the Solari Health 360 application to limit access to sensitive health data and functionalities based on user roles and permissions.
-# Threat Modelling Process Summary
+# **Threat Modelling Workshop Summary**
+
+## **Introduction**
+A **3-hour threat modelling workshop** was conducted to analyze **potential AI-driven cyber attacks** against the **web-facing healthcare application** **Solaris Care Connect 360**.
+
+## **Attendees**
+The workshop was attended by representatives from:  
+- **CareConnect Engineering Team**  
+- **Product Managers**  
+- **DevEx Engineers**  
+- **DevSecOps Team**  
+
+## **Scope**
+The workshop covered **four key attack scenarios**:  
+1. **Phishing Attack**  
+2. **Ransomware Attack**  
+3. **Insider Threat**  
+4. **SQL Injection Attack**  
+
+## **Methodology**
+The threat modelling workshop utilized:  
+- **Cyber Kill Chain** → To analyze each attack’s **lifecycle**  
+- **MITRE ATT&CK Framework** → To identify **tactics, techniques, and procedures (TTPs)**  
+- **STRIDE Threat Model** → To **assess control gaps** and prioritize mitigations  
+
+The result was a **comprehensive risk assessment** of Solaris Care Connect 360.
+
+## **Findings**
+The workshop identified:  
+- **4 High-Risk Threats**  
+- **3 Medium-Risk Threats**  
+
+## **Controls Required**
+To mitigate the identified risks, the following security controls were recommended:  
+
+### **Security Best Practices**
+✔ **Regular Security Audits** → Routine **penetration testing and vulnerability scans** targeting Solaris Care Connect 360.  
+✔ **Patch Management** → Ensure timely updates of **underlying frameworks, dependencies, and OS security patches**.  
+✔ **Comprehensive Employee Training** → Strengthen **phishing awareness** and **security best practices** among staff.  
+✔ **Multi-Factor Authentication (MFA)** → Enforce **MFA for all user accounts**, reducing the risk of credential-based attacks.  
+
+### **Technical Controls**
+✔ **Web Application Firewall (WAF)** → Deploy a **WAF to detect and filter malicious requests**.  
+✔ **Network Traffic Monitoring** → Implement **AI-driven anomaly detection** to monitor **suspicious behavior**.  
+✔ **Role-Based Access Control (RBAC)** → Restrict **access to sensitive health data** based on user roles.  
+
+---
+
+# **Threat Modelling Process Summary**
 ```mermaid
 mindmap
-  root((attack))
-    STRIDE/MITRE/Kill Chain
-      Inherent Risk Assesment
-      ::icon(fa fa-book)
+  root((Threat Modelling Process))
+    Methodology
+      STRIDE Analysis
+      MITRE ATT&CK Framework
+      Cyber Kill Chain
+    Risk Assessment
+      Inherent Risk Evaluation
       Critical Asset List
-        Schedule and Scope Workshop
+      Workshop Scheduling
     Controls Required
-      Risks<br/>Mitigations
-      Risk Summary
-        Remediation workflow
-            Slack
-            JIRA
-    Scenarios
-      Attack 1
-      Attack 2
-      Attack 3
-      Attack 4
+      Security Audits
+      Patch Management
+      Web Application Firewall (WAF)
+      Network Monitoring
+      Role-Based Access Control (RBAC)
+      Employee Training (Phishing Awareness)
+    Risk Summary
+      Identified Risks<br/>(4 High, 3 Medium)
+      Mitigation Plans
+        Remediation Workflow
+          Slack
+          JIRA
+    Attack Scenarios
+      Phishing Attack
+      Ransomware Attack
+      Insider Threat
+      SQL Injection
