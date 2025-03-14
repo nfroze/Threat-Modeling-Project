@@ -1,4 +1,3 @@
-```mermaid
 graph TD;
     %% External Entities
     Patients[Patients] -->|Login, Schedule, View Records| UserAuth[User Authentication]
