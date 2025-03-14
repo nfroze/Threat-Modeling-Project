@@ -8,8 +8,8 @@ graph TD;
     %% Processes
     UserAuth -->|JWT, Cognito, SSO| MariaDB["🗄️ MariaDB"]
     Patients -->|Submit, Update Info| PatientManagement["📋 PatientManagement"]
-    HealthcareProviders -->|Manage Patient Data| PatientMgmt
-    PatientMgmt -->|Store, Retrieve Data| MariaDB
+    HealthcareProviders -->|Manage Patient Data| PatientManagement
+    PatientManagement -->|Store, Retrieve Data| MariaDB
 
     Patients -->|Send Messages| SecureMessaging["💬 SecureMessaging"]
     HealthcareProviders -->|Send Messages| SecureMessaging
@@ -24,13 +24,13 @@ graph TD;
     HealthcareProviders -->|Join Telehealth Session| Telehealth
     Telehealth -->|WebRTC, Video Calls| Patients
 
-    MedicationMgmt -->|Fetch Medication Data| MariaDB
-    MedicationMgmt -->|Send Alerts| Patients
+    MedicationManagement -->|Fetch Medication Data| MariaDB
+    MedicationManagement -->|Send Alerts| Patients
 
     %% Data Stores
     MariaDB -->|Store & Retrieve Data| Analytics["📊 Analytics"]
     Analytics -->|Insights, Reports| HealthcareProviders
-    Analytics -->|Log Data| Logs["📝 LogMgmt_ELK"]
+    Analytics -->|Log Data| Logs["📝 LogManagement_ELK"]
     Analytics -->|Monitor System| Monitoring["📡 Prometheus"]
 
     %% Data Encryption & Security
