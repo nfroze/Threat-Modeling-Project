@@ -19,8 +19,8 @@ The workshop covered **four key attack scenarios**:
 
 ## **Methodology**
 The threat modelling workshop utilized:  
-- **Cyber Kill Chain** → To analyze each attack’s **lifecycle**  
-- **MITRE ATT&CK Framework** → To identify **tactics, techniques, and procedures (TTPs)**  
-- **STRIDE Threat Model** → To **assess control gaps** and prioritize mitigations  
+- **Cyber Kill Chain** → To analyze each attack’s **lifecycle** 
+- **MITRE ATT&CK Framework** → To identify **tactics, techniques, and procedures (TTPs)** for each attack
+- **STRIDE Threat Model** → To **assess control gaps** and prioritize mitigations for CareConnect360 as a whole  
 
 The result was a **comprehensive risk assessment** of Solaris Care Connect 360.
