@@ -3,11 +3,11 @@ graph TD;
     %% External Entities
     Patients["👤 Patients"] -->|Login, Schedule, View Records| UserAuth["🔐 UserAuth"]
     HealthcareProviders["🏥 HealthcareProviders"] -->|Login, Manage Records| UserAuth
-    ThirdParty["🔗 ThirdPartyServices"] -->|API Requests| MedicationManagement ["💊 MedicationManagement"]
+    ThirdParty["🔗 ThirdPartyServices"] -->|API Requests| MedicationManagement["💊 MedicationManagement"]
 
     %% Processes
     UserAuth -->|JWT, Cognito, SSO| MariaDB["🗄️ MariaDB"]
-    Patients -->|Submit, Update Info| PatientMgmt["📋 PatientMgmt"]
+    Patients -->|Submit, Update Info| PatientManagement["📋 PatientManagement"]
     HealthcareProviders -->|Manage Patient Data| PatientMgmt
     PatientMgmt -->|Store, Retrieve Data| MariaDB
 
