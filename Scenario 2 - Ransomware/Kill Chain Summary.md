@@ -48,12 +48,12 @@ flowchart TD
     style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
 
     %% Attack Sequence
-    Origins[Origins] -->|Identify CareConnect360 as a target due to sensitive patient data| Reconnaissance[Reconnaissance]
-    Reconnaissance -->|Scan for vulnerable RDP, VPN, unpatched servers, or phishing targets| Weaponization[Weaponization]
-    Weaponization -->|Develop custom ransomware payload or use RaaS (Ransomware-as-a-Service)| Delivery[Delivery]
-    Delivery -->|Distribute ransomware via phishing emails, exploit kits, or RDP brute force| Exploitation[Exploitation]
-    Exploitation -->|Execute ransomware payload, gain admin privileges, disable security tools| Installation[Installation]
-    Installation -->|Spread laterally across network, encrypt files, delete backups| Impact[Impact]
+    Origins[Origins] -->|Identify CareConnect360 as target due to sensitive data| Reconnaissance[Reconnaissance]
+    Reconnaissance -->|Scan for vulnerable RDP, VPN, unpatched servers, phishing targets| Weaponization[Weaponization]
+    Weaponization -->|Develop custom ransomware payload or use Ransomware as a Service| Delivery[Delivery]
+    Delivery -->|Distribute ransomware via phishing emails, exploit kits, RDP brute force| Exploitation[Exploitation]
+    Exploitation -->|Execute ransomware payload, escalate privileges, disable security tools| Installation[Installation]
+    Installation -->|Spread across network, encrypt files, delete backups| Impact[Impact]
     Impact -->|Display ransom note, demand payment in cryptocurrency, threaten data leak| Impact
 
     %% MITRE ATT&CK Techniques
@@ -61,11 +61,11 @@ flowchart TD
     style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
     Reconnaissance -->|T1595 - Active Scanning| MITRE
     Weaponization -->|T1566.001 - Phishing| MITRE
-    Weaponization -->|T1190 - Exploit Public-Facing Application| MITRE
+    Weaponization -->|T1190 - Exploit Public Facing Application| MITRE
     Delivery -->|T1071 - Application Layer Protocol| MITRE
     Exploitation -->|T1059.003 - Command and Scripting Interpreter| MITRE
     Installation -->|T1105 - Ingress Tool Transfer| MITRE
     Installation -->|T1570 - Lateral Tool Transfer| MITRE
-    Impact -->|T1486 - Data Encrypted for Impact (Ransomware Deployment)| MITRE
+    Impact -->|T1486 - Data Encrypted for Impact| MITRE
     Impact -->|T1490 - Inhibit System Recovery| MITRE
     end
