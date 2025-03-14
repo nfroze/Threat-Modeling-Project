@@ -1,5 +1,5 @@
 ```mermaid
-graph TD;
+flowchart TD;
     %% Users & External Entities
     Patients["👤 Patients"] -->|Web Portal, Mobile App| Frontend["🌐 Frontend (React.js)"]
     HealthcareProviders["🏥 Healthcare Providers"] -->|Web Portal| Frontend
