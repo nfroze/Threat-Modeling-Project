@@ -1,30 +1,28 @@
 ```mermaid
-  sequenceDiagram
-    participant Attacker
-    participant SolariHealthApp
-    participant CnCServer
-    participant BackendServer
-    participant User
+sequenceDiagram
+    participant Attacker as Attacker
+    participant User as User (Victim)
+    participant WebApp as CareConnect360 Web App
+    participant Backend as Backend Server (Node.js & Express)
+    participant Database as Database (MariaDB)
+
     activate Attacker
-    Attacker->>SolariHealthApp: Identify Solari Health 360 app
-    SolariHealthApp->>Attacker: Application identified
+    Attacker->>User: Sends malicious link with SQL injection payload
+    User->>WebApp: Clicks link, submits form with injected SQL
+    WebApp->>Backend: Passes unsanitized input to API
     deactivate Attacker
+
+    activate Backend
+    Backend->>Database: Executes SQL query with injected code
+    Database->>Backend: Returns unauthorized sensitive data
+    deactivate Backend
+
     activate Attacker
-    Attacker->>SolariHealthApp: Craft exploit for known vulnerabilities
-    SolariHealthApp->>Attacker: Exploit crafted
+    Backend->>WebApp: Displays leaked data on frontend
+    WebApp->>Attacker: Exposes patient records & credentials
     deactivate Attacker
+
     activate Attacker
-    Attacker->>SolariHealthApp: Deploy phishing campaign targeting app users
-    SolariHealthApp->>User: Phishing email sent
-    activate User
-    User->>SolariHealthApp: Clicks on malicious link/download attachment
-    SolariHealthApp->>User: Malware downloaded
-    deactivate User
-    deactivate Attacker
-    activate Attacker
-    Attacker->>SolariHealthApp: Trick users into downloading malware
-    SolariHealthApp->>BackendServer: Malicious payload executed
-    BackendServer->>CnCServer: Communication established
-    CnCServer->>BackendServer: Commands issued
-    BackendServer->>CnCServer: Actions performed
+    Attacker->>Database: Modifies/deletes records via injection
+    Database->>Attacker: Confirms execution of SQL payload
     deactivate Attacker
