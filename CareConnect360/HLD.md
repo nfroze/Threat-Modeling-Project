@@ -1,15 +1,17 @@
 ```mermaid
 flowchart TD;
-    %% External Entities
-    Patients["👤 Patients"] -->|Web & Mobile Access| Frontend["🌐 Web App"]
+    %% External Users & Systems
+    Patients["👤 Patients"] -->|Web/Mobile Access| Frontend["🌐 Web App (React)"]
     HealthcareProviders["🏥 Providers"] -->|Manage Patients| Frontend
-    ThirdParty["🔗 Third-Party Services"] -->|API Integration| Backend["⚙️ Backend System"]
+    ThirdParty["🔗 Third-Party Services"] -->|API Requests| Backend["⚙️ Backend (Node.js)"]
 
-    %% System Architecture
-    Frontend -->|API Calls| Backend
-    Backend -->|Authenticate Users| Auth["🔐 Authentication"]
-    Backend -->|Store & Retrieve Data| Database["🗄️ Patient Database"]
+    %% System Infrastructure
+    Frontend -->|REST API Calls| Backend
+    Backend -->|Authenticate & Manage Users| Auth["🔐 Authentication (Cognito, SSO)"]
+    Backend -->|Store & Retrieve Patient Data| Database["🗄️ Database (MariaDB)"]
+    Backend -->|File Storage| S3["☁️ AWS S3 Storage"]
 
-    %% Security & Compliance
-    Auth -.->|MFA, Secure Login| Frontend
-    Backend -.->|Access Controls, Logging| Security["🛡️ Security Layer"]
+    %% Security & CI/CD Pipeline
+    Auth -.->|MFA, Access Control| Security["🛡️ Security Layer"]
+    Backend -.->|Monitoring & Logging| Security
+    Backend -->|Automated Deployments| CI_CD["🚀 CI/CD (GitHub Actions)"]

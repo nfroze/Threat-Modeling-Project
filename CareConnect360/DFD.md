@@ -3,17 +3,13 @@ flowchart TD;
     %% External Entities
     Patients["👤 Patients"] -->|Login, Schedule, View Records| Frontend["🌐 CareConnect360 Web App"]
     HealthcareProviders["🏥 Providers"] -->|Manage Patients, Appointments| Frontend
-    ThirdParty["🔗 Third-Party Services"] -->|API Requests| Backend["⚙️ Backend System"]
+    ThirdParty["🔗 Third-Party APIs"] -->|Send/Receive Data| Backend["⚙️ Backend System"]
 
-    %% Main System Components
-    Frontend -->|REST API Calls| Backend
-    Backend -->|Authenticate Users| Auth["🔐 Authentication System"]
-    Backend -->|Store, Retrieve Patient Data| Database["🗄️ Patient Database"]
-    
-    %% External Interactions
-    Backend -->|Sync Data, Integrate Services| ThirdParty
+    %% Data Flow
+    Frontend -->|User Inputs, Requests| Backend
+    Backend -->|Authenticate Users| Auth["🔐 Authentication"]
+    Backend -->|Query, Store Data| Database["🗄️ Patient Database"]
 
-    %% Security Measures
-    Auth -.->|TLS/SSL Encryption| Database
-    Frontend -.->|MFA, Secure Login| Auth
-    Backend -.->|Access Controls, Logging| Security["🛡️ Security & Compliance"]
+    %% Security Controls
+    Auth -.->|Encrypt Data in Transit| Security["🛡️ Security Layer"]
+    Backend -.->|Audit Logs| Security
