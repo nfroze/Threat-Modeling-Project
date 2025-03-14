@@ -30,32 +30,34 @@ The attacker can now exfiltrate sensitive patient records, escalate privileges f
 
 ```mermaid
 flowchart TD
+    %% Define Colors
     style Reconnaissance fill:#F4D03F,stroke:#000,stroke-width:2px
     style Weaponization fill:#F5B041,stroke:#000,stroke-width:2px
-    style Attack fill:#EB984E,stroke:#000,stroke-width:2px
+    style Delivery fill:#EB984E,stroke:#000,stroke-width:2px
     style Exploitation fill:#E59866,stroke:#000,stroke-width:2px
     style Installation fill:#DC7633,stroke:#000,stroke-width:2px
     style Command_Control fill:#CA6F1E,stroke:#000,stroke-width:2px
     style Actions_Objectives fill:#BA4A00,stroke:#000,stroke-width:2px
     style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
     style Controls fill:#82E0AA,stroke:#000,stroke-width:2px
-    Reconnaissance[Reconnaissance] -->|Identify Solari Health 360 app| Weaponization[Weaponization]
-    Weaponization[Weaponization] -->|Craft exploit for known vulnerabilities| Delivery[Delivery]
-    Delivery[Delivery] -->|Deploy phishing campaign targeting app users| Exploitation[Exploitation]
-    Exploitation[Exploitation] -->|Trick users into downloading malware| Installation[Installation]
-    Installation[Installation] -->|Gain access to app backend| Command_Control[Command and Control]
-    Command_Control[Command and Control] -->|Establish communication with C&C server| Actions_Objectives[Actions on Objectives]
-    Actions_Objectives[Actions on Objectives] -->|Steal sensitive health data| Actions_Objectives[Actions on Objectives]
-    Actions_Objectives[Actions on Objectives] -->|Manipulate patient records| Actions_Objectives[Actions on Objectives]
+
+    %% Attack Flow
+    Reconnaissance[Reconnaissance] -->|Identify CareConnect360 employees & gather emails| Weaponization[Weaponization]
+    Weaponization[Weaponization] -->|Create phishing emails and fake login pages| Delivery[Delivery]
+    Delivery[Delivery] -->|Send phishing emails targeting employees| Exploitation[Exploitation]
+    Exploitation[Exploitation] -->|User clicks malicious link or opens attachment| Installation[Installation]
+    Installation[Installation] -->|Malware executes or credentials stolen| Command_Control[Command and Control]
+    Command_Control[Command and Control] -->|Establish communication with attacker's server| Actions_Objectives[Actions on Objectives]
+    Actions_Objectives[Actions on Objectives] -->|Exfiltrate stolen credentials or patient records| Actions_Objectives[Actions on Objectives]
+    Actions_Objectives[Actions on Objectives] -->|Use stolen credentials for privilege escalation| Actions_Objectives[Actions on Objectives]
+
+    %% MITRE ATT&CK Mapping
     subgraph MITRE_Attack[MITRE ATT&CK Techniques]
     style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
-    Delivery -->|T1566.001 - Phishing| MITRE
-    Exploitation -->|T1190 - Exploit Public-Facing Application| MITRE
-    Exploitation -->|T1059.003 - Command and Scripting Interpreter| MITRE
-    Installation -->|T1106 - Execution through API| MITRE
-    Command_Control -->|T1102 - Web Service| MITRE
-    Command_Control -->|T1105 - Ingress Tool Transfer| MITRE
-    Actions_Objectives -->|T1136 - Create Account| MITRE
-    Actions_Objectives -->|T1574 - Hijack Execution Flow| MITRE
+    Delivery -->|T1566.001 - Phishing (Spear Phishing Link)| MITRE
+    Exploitation -->|T1566.002 - Phishing (Spear Phishing Attachment)| MITRE
+    Exploitation -->|T1204.002 - User Execution (Malicious Link/Attachment)| MITRE
+    Installation -->|T1078 - Valid Accounts (Use of Stolen Credentials)| MITRE
+    Command_Control -->|T1071 - Application Layer Protocol (C2 Communication)| MITRE
     Actions_Objectives -->|T1565.001 - Data Manipulation| MITRE
     end
