@@ -1,8 +1,16 @@
 *Controls Required:*
-- Regular security audits to detect vulnerabilities.
-- Patch management to ensure software is up-to-date.
-- Employee training on phishing awareness to prevent successful phishing attacks.
-- Web Application Firewall (WAF) to block malicious traffic.
-- Multi-factor authentication (MFA) to enhance authentication security.
-- Network traffic monitoring to detect suspicious activity.
-- Role-based access control (RBAC) to limit access to sensitive data and functionalities.
+Input Validation & Sanitization – Ensure all user inputs are validated, escaped, or sanitized before being processed by the database.
+Use Prepared Statements & Parameterized Queries – Replace concatenated SQL queries with prepared statements to prevent injection attempts.
+Web Application Firewall (WAF) – Deploy a WAF to detect and block SQL injection attempts before they reach the backend.
+Least Privilege Access (RBAC & IAM) – Restrict database user privileges, ensuring web applications can only perform necessary operations.
+Error Handling & Suppression – Disable detailed SQL error messages that could help attackers identify vulnerabilities.
+Database Activity Monitoring (DAM) – Continuously monitor and log SQL queries for suspicious patterns indicating an attack.
+Limit Database Permissions – Ensure web applications only have read/write access to necessary tables, preventing unauthorized data modification.
+Restrict Special Characters in User Input – Implement allowlists and disallow special characters like ', ", --, and ; in input fields.
+Regular Security Audits & Code Reviews – Conduct code reviews and vulnerability assessments to detect insecure SQL code.
+Rate Limiting & CAPTCHA – Implement rate limiting and CAPTCHA on login and search forms to mitigate automated SQL injection attacks.
+Stored Procedures – Use stored procedures instead of direct SQL queries when executing database commands.
+Enable Database Security Features – Utilize built-in database security features, such as query logging and access restrictions.
+Encrypt Sensitive Data – Encrypt personally identifiable information (PII) and medical data to protect against data exposure.
+Disable Unused Database Features – Turn off database features that are not needed, such as database shell access.
+Incident Response Plan for SQL Injection – Develop a SQL injection response plan, including real-time monitoring, containment, and remediation strategies.
