@@ -42,22 +42,22 @@ flowchart TD
     style Controls fill:#82E0AA,stroke:#000,stroke-width:2px
 
     %% Attack Flow
-    Reconnaissance[Reconnaissance] -->|Identify_CareConnect360_employees_&_gather_emails| Weaponization[Weaponization]
-    Weaponization[Weaponization] -->|Create_phishing_emails_and_fake_login_pages| Delivery[Delivery]
-    Delivery[Delivery] -->|Send_phishing_emails_targeting_employees| Exploitation[Exploitation]
-    Exploitation[Exploitation] -->|User_clicks_malicious_link_or_opens_attachment| Installation[Installation]
-    Installation[Installation] -->|Malware_executes_or_credentials_stolen| Command_Control[Command and Control]
-    Command_Control[Command and Control] -->|Establish_communication_with_attacker_server| Actions_Objectives[Actions on Objectives]
-    Actions_Objectives[Actions on Objectives] -->|Exfiltrate_stolen_credentials_or_patient_records| Actions_Objectives[Actions on Objectives]
-    Actions_Objectives[Actions on Objectives] -->|Use_stolen_credentials_for_privilege_escalation| Actions_Objectives[Actions on Objectives]
+    Reconnaissance["Reconnaissance"] -->|"Identify CareConnect360 employees & gather emails"| Weaponization["Weaponization"]
+    Weaponization["Weaponization"] -->|"Create phishing emails and fake login pages"| Delivery["Delivery"]
+    Delivery["Delivery"] -->|"Send phishing emails targeting employees"| Exploitation["Exploitation"]
+    Exploitation["Exploitation"] -->|"User clicks malicious link or opens attachment"| Installation["Installation"]
+    Installation["Installation"] -->|"Malware executes or credentials stolen"| Command_Control["Command and Control"]
+    Command_Control["Command and Control"] -->|"Establish communication with attacker's server"| Actions_Objectives["Actions on Objectives"]
+    Actions_Objectives["Actions on Objectives"] -->|"Exfiltrate stolen credentials or patient records"| Actions_Objectives
+    Actions_Objectives["Actions on Objectives"] -->|"Use stolen credentials for privilege escalation"| Actions_Objectives
 
     %% MITRE ATT&CK Mapping
-    subgraph MITRE_Attack[MITRE ATT&CK Techniques]
+    subgraph MITRE_Attack["MITRE ATT&CK Techniques"]
     style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
-    Delivery -->|T1566_001_Spear_Phishing_Link| MITRE
-    Exploitation -->|T1566_002_Spear_Phishing_Attachment| MITRE
-    Exploitation -->|T1204_002_User_Execution_Malicious_Link| MITRE
-    Installation -->|T1078_Valid_Accounts_Stolen_Credentials| MITRE
-    Command_Control -->|T1071_Application_Layer_Protocol_C2| MITRE
-    Actions_Objectives -->|T1565_001_Data_Manipulation| MITRE
+    Delivery -->|"T1566.001 - Spear Phishing Link"| MITRE
+    Exploitation -->|"T1566.002 - Spear Phishing Attachment"| MITRE
+    Exploitation -->|"T1204.002 - User Execution (Malicious Link)"| MITRE
+    Installation -->|"T1078 - Valid Accounts (Stolen Credentials)"| MITRE
+    Command_Control -->|"T1071 - Application Layer Protocol (C2)"| MITRE
+    Actions_Objectives -->|"T1565.001 - Data Manipulation"| MITRE
     end
