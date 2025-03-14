@@ -4,7 +4,7 @@ A 3 Hour threat modelling workshop took place to detail the runbook scenario of 
 ## Attendess
 Care Connect Eng team, Product Managers, DevEx Engineers and the DevSecOps Team.
 ## Scope
-4 Scenarios were run covering: (1) AI Generated External phishing email utilising admin credentials (2) Attack against Machine Processes and the data lake (3) Insider attack taking Quant algorithms (4) SQL Injection attack.
+4 Scenarios were run covering: (1) Phising attack (2) Ransomware attack (3) Insider attack (4) SQL Injection attack.
 ## Methodology
 All scenarios were run against the cyber attack killchain, utilising the Mitre Att&ack methods and STRIDE for control gap assessments. Culminating in identified risks.
 ## Conclusion
