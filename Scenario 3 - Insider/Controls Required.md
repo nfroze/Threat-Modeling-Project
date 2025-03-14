@@ -1,16 +1,16 @@
 *Controls Required:*
-User Activity Monitoring (UAM) – Implement real-time monitoring of employee activities, including file access, downloads, and system interactions.
-Role-Based Access Control (RBAC) – Enforce least privilege access, ensuring employees only have access to data necessary for their job roles.
-Multi-Factor Authentication (MFA) – Require MFA for all privileged accounts to prevent unauthorized access from compromised credentials.
-Data Loss Prevention (DLP) – Deploy DLP solutions to detect and prevent unauthorized data transfers to external storage or cloud platforms.
-Privileged Access Management (PAM) – Restrict and monitor privileged account activities to prevent abuse by high-level insiders.
-Audit Logging & Continuous Monitoring – Enable detailed logging of database queries, system changes, and user actions to detect suspicious behavior.
-Background Checks & Employee Screening – Conduct thorough background checks before hiring, especially for employees handling sensitive data.
-Separation of Duties (SoD) – Ensure critical tasks (e.g., data access & approval) require multiple personnel to prevent fraudulent activities.
-Automated Anomaly Detection – Use AI-driven behavioral analytics to identify suspicious access patterns or unusual login activities.
-USB & External Device Restrictions – Block or limit the use of external drives, USB devices, and unauthorized software installations.
-Email & File Activity Monitoring – Track suspicious email activity, large file transfers, or unauthorized sharing of internal documents.
-Strict Termination Procedures – Immediately revoke access to all accounts and systems when an employee leaves the company.
-Incident Response Plan for Insider Threats – Develop and regularly test an insider threat response plan to quickly detect, contain, and mitigate malicious activities.
-Regular Security Awareness Training – Educate employees on company policies, security protocols, and the risks of insider threats.
-Legal & Policy Enforcement – Clearly define legal consequences for policy violations, data theft, and misuse of company resources.
+- User Activity Monitoring (UAM) – Implement real-time monitoring of employee activities, including file access, downloads, and system interactions.
+- Role-Based Access Control (RBAC) – Enforce least privilege access, ensuring employees only have access to data necessary for their job roles.
+- Multi-Factor Authentication (MFA) – Require MFA for all privileged accounts to prevent unauthorized access from compromised credentials.
+- Data Loss Prevention (DLP) – Deploy DLP solutions to detect and prevent unauthorized data transfers to external storage or cloud platforms.
+- Privileged Access Management (PAM) – Restrict and monitor privileged account activities to prevent abuse by high-level insiders.
+- Audit Logging & Continuous Monitoring – Enable detailed logging of database queries, system changes, and user actions to detect suspicious behavior.
+- Background Checks & Employee Screening – Conduct thorough background checks before hiring, especially for employees handling sensitive data.
+- Separation of Duties (SoD) – Ensure critical tasks (e.g., data access & approval) require multiple personnel to prevent fraudulent activities.
+- Automated Anomaly Detection – Use AI-driven behavioral analytics to identify suspicious access patterns or unusual login activities.
+- USB & External Device Restrictions – Block or limit the use of external drives, USB devices, and unauthorized software installations.
+- Email & File Activity Monitoring – Track suspicious email activity, large file transfers, or unauthorized sharing of internal documents.
+- Strict Termination Procedures – Immediately revoke access to all accounts and systems when an employee leaves the company.
+- Incident Response Plan for Insider Threats – Develop and regularly test an insider threat response plan to quickly detect, contain, and mitigate malicious activities.
+- Regular Security Awareness Training – Educate employees on company policies, security protocols, and the risks of insider threats.
+- Legal & Policy Enforcement – Clearly define legal consequences for policy violations, data theft, and misuse of company resources.
