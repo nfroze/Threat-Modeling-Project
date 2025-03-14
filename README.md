@@ -40,5 +40,5 @@ mindmap
       SQL Injection Attack
     Methodology
       Cyber Kill Chain
-      MITRE_ATT&CK
+      MITRE ATT\ACK
       STRIDE Threat Model
