@@ -1,30 +1,26 @@
 ```mermaid
-  sequenceDiagram
-    participant Attacker
-    participant SolariHealthApp
-    participant CnCServer
-    participant BackendServer
-    participant User
-    activate Attacker
-    Attacker->>SolariHealthApp: Identify Solari Health 360 app
-    SolariHealthApp->>Attacker: Application identified
-    deactivate Attacker
-    activate Attacker
-    Attacker->>SolariHealthApp: Craft exploit for known vulnerabilities
-    SolariHealthApp->>Attacker: Exploit crafted
-    deactivate Attacker
-    activate Attacker
-    Attacker->>SolariHealthApp: Deploy phishing campaign targeting app users
-    SolariHealthApp->>User: Phishing email sent
-    activate User
-    User->>SolariHealthApp: Clicks on malicious link/download attachment
-    SolariHealthApp->>User: Malware downloaded
-    deactivate User
-    deactivate Attacker
-    activate Attacker
-    Attacker->>SolariHealthApp: Trick users into downloading malware
-    SolariHealthApp->>BackendServer: Malicious payload executed
-    BackendServer->>CnCServer: Communication established
-    CnCServer->>BackendServer: Commands issued
-    BackendServer->>CnCServer: Actions performed
-    deactivate Attacker
+sequenceDiagram
+    participant Insider as Insider (Malicious Employee)
+    participant CareConnect360 as CareConnect360 System
+    participant Database as Database (MariaDB)
+    participant ExternalDrive as External Storage (USB/Cloud)
+    participant DarkWeb as Dark Web/Competitor
+
+    activate Insider
+    Insider->>CareConnect360: Logs into system using valid credentials
+    CareConnect360->>Insider: Provides authorized access to patient data
+    deactivate Insider
+
+    activate Insider
+    Insider->>Database: Executes unauthorized queries to extract sensitive data
+    Database->>Insider: Returns patient records and PII
+    deactivate Insider
+
+    activate Insider
+    Insider->>ExternalDrive: Copies extracted data to USB/Cloud storage
+    deactivate Insider
+
+    activate Insider
+    Insider->>DarkWeb: Sells or leaks patient data for financial gain
+    DarkWeb->>Insider: Confirms transaction and payment
+    deactivate Insider
