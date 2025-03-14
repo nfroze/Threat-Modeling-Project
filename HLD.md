@@ -1,48 +1,49 @@
 ```mermaid
 flowchart TD;
     %% Users & External Entities
-    subgraph "Users & External Systems"
+    subgraph Users["👥 Users & External Systems"]
         Patients["👤 Patients"]
-        HealthcareProviders["🏥 Healthcare Providers"]
-        ThirdPartyServices["🔗 Third-Party Services"]
+        HealthcareProviders["🏥 Providers"]
+        ThirdParty["🔗 3rd-Party APIs"]
     end
 
     %% Frontend Layer
-    subgraph "🌐 Frontend Layer (React.js)"
-        Frontend["💻 Web App (React.js)"]
+    subgraph FrontendLayer["🌐 Frontend (React.js)"]
+        Frontend["💻 Web App"]
     end
     
-    Patients -->|Login, Schedule, View Records| Frontend
-    HealthcareProviders -->|Manage Patients, Appointments| Frontend
+    Patients -->|Login, Schedule| Frontend
+    HealthcareProviders -->|Manage Patients| Frontend
     
     %% Backend Layer
-    subgraph "⚙️ Backend Layer (Node.js & Express)"
-        Backend["🔄 API Gateway (Node.js & Express)"]
-        Auth["🔐 Authentication (JWT, SSO, Cognito)"]
-        Telehealth["📹 Telehealth Module (WebRTC, Socket.IO)"]
-        MedicationMgmt["💊 MedTrack Pro API Integration"]
+    subgraph BackendLayer["⚙️ Backend (Node.js & Express)"]
+        Backend["🔄 API Gateway"]
+        Auth["🔐 Auth (JWT, SSO)"]
+        Telehealth["📹 Telehealth (WebRTC)"]
+        MedMgmt["💊 MedTrack API"]
     end
     
-    Frontend -->|RESTful API Calls| Backend
+    Frontend -->|API Calls| Backend
     Backend -->|OAuth2, JWT| Auth
-    Backend -->|WebRTC Video Calls| Telehealth
-    Backend -->|Medication Data Sync| MedicationMgmt
+    Backend -->|Video Calls| Telehealth
+    Backend -->|Sync Med Data| MedMgmt
+    ThirdParty -->|API Requests| MedMgmt
 
     %% Database & Storage
-    subgraph "🗄️ Data Storage & Analytics"
-        Database["📄 MariaDB (Patient Records)"]
-        AWS_S3["☁️ AWS S3 (Encrypted Data Storage)"]
-        Analytics["📊 HealthInsight Analytics"]
+    subgraph DataStorage["🗄️ Data & Analytics"]
+        Database["📄 MariaDB"]
+        AWS_S3["☁️ AWS S3 (Encrypted)"]
+        Analytics["📊 Health Insights"]
     end
     
-    Backend -->|Store, Retrieve Patient Data| Database
-    Database -->|Encrypted PII Data| AWS_S3
-    Database -->|Healthcare Insights| Analytics
+    Backend -->|Store/Retrieve Data| Database
+    Database -->|Encrypted Data| AWS_S3
+    Database -->|Analytics Data| Analytics
 
     %% Security & Compliance
-    subgraph "🛡️ Security & Compliance"
-        Security["🔏 HIPAA Compliance & Access Controls"]
-        Logs["📜 Logging & Monitoring (ELK Stack, Prometheus)"]
+    subgraph SecurityLayer["🛡️ Security & Logging"]
+        Security["🔏 HIPAA Compliance"]
+        Logs["📜 ELK & Prometheus"]
     end
     
     Backend -.->|TLS/SSL Encryption| Database
@@ -50,9 +51,9 @@ flowchart TD;
     Backend -.->|HIPAA Compliance| Security
 
     %% Deployment & Infrastructure
-    subgraph "☁️ Cloud Infrastructure & CI/CD"
-        DevOps["🚀 CI/CD Pipeline (GitHub Actions)"]
-        AWS_Infra["☁️ AWS (EC2, Lambda, S3)"]
+    subgraph CloudInfra["☁️ Cloud & CI/CD"]
+        DevOps["🚀 CI/CD Pipeline"]
+        AWS_Infra["☁️ AWS Infra"]
     end
     
     DevOps -->|Deployments| AWS_Infra
