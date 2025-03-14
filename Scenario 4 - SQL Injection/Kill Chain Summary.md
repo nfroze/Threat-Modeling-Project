@@ -22,37 +22,3 @@ The attacker ensures continued access by: Creating hidden admin accounts. Deploy
 
 ### Actions on Objectives
 After executing the attack, the attacker: Sells or leaks stolen data on the dark web. Modifies healthcare records to cause misdiagnoses. Deletes critical patient data, causing system downtime.
-
-```mermaid
-flowchart TD
-    %% Define colors for different attack stages
-    style Origins fill:#F4D03F,stroke:#000,stroke-width:2px
-    style Reconnaissance fill:#F5B041,stroke:#000,stroke-width:2px
-    style Weaponization fill:#EB984E,stroke:#000,stroke-width:2px
-    style Delivery fill:#E59866,stroke:#000,stroke-width:2px
-    style Exploitation fill:#DC7633,stroke:#000,stroke-width:2px
-    style Persistence fill:#CA6F1E,stroke:#000,stroke-width:2px
-    style Actions_Objectives fill:#BA4A00,stroke:#000,stroke-width:2px
-    style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
-
-    %% Attack Sequence
-    Origins[Origins] -->|Identify CareConnect360 as a target due to its sensitive data| Reconnaissance[Reconnaissance]
-    Reconnaissance -->|Scan CareConnect360 for SQL Injection vulnerabilities| Weaponization[Weaponization]
-    Weaponization -->|Craft SQL payloads to exploit input fields & API endpoints| Delivery[Delivery]
-    Delivery -->|Inject malicious SQL queries in login forms, search fields, APIs| Exploitation[Exploitation]
-    Exploitation -->|Execute SQL commands to extract, modify, or delete data| Persistence[Persistence]
-    Persistence -->|Create hidden admin accounts, disable logs, or deploy malware| Actions_Objectives[Actions on Objectives]
-    Actions_Objectives -->|Steal, manipulate, or destroy patient data| Actions_Objectives
-
-    %% MITRE ATT&CK Techniques
-    subgraph MITRE_Attack[MITRE ATT&CK Techniques]
-    style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
-    Reconnaissance -->|T1595 - Active Scanning| MITRE
-    Weaponization -->|T1190 - Exploit Public-Facing Application| MITRE
-    Delivery -->|T1059.003 - Command and Scripting Interpreter| MITRE
-    Exploitation -->|T1041 - Exfiltration Over C2 Channel| MITRE
-    Exploitation -->|T1565.001 - Data Manipulation| MITRE
-    Persistence -->|T1136 - Create Account| MITRE
-    Persistence -->|T1098 - Account Manipulation| MITRE
-    Persistence -->|T1070 - Indicator Removal on Host| MITRE
-    end
