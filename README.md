@@ -34,7 +34,7 @@ The workshop identified:
 To mitigate the identified risks, the following security controls were recommended:  
 
 ### **Security Best Practices**
-✔ **Regular Security Audits** → Routine **penetration testing and vulnerability scans** targeting Solaris Care Connect 360.  
+✔ **Regular Security Audits** → Routine **penetration testing and vulnerability scans** targeting Solaris CareConnect360.  
 ✔ **Patch Management** → Ensure timely updates of **underlying frameworks, dependencies, and OS security patches**.  
 ✔ **Comprehensive Employee Training** → Strengthen **phishing awareness** and **security best practices** among staff.  
 ✔ **Multi-Factor Authentication (MFA)** → Enforce **MFA for all user accounts**, reducing the risk of credential-based attacks.  
