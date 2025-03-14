@@ -1,16 +1,16 @@
-*Controls Required:*
-- Input Validation & Sanitization – Ensure all user inputs are validated, escaped, or sanitized before being processed by the database.
-- Use Prepared Statements & Parameterized Queries – Replace concatenated SQL queries with prepared statements to prevent injection attempts.
-- Web Application Firewall (WAF) – Deploy a WAF to detect and block SQL injection attempts before they reach the backend.
-- Least Privilege Access (RBAC & IAM) – Restrict database user privileges, ensuring web applications can only perform necessary operations.
-- Error Handling & Suppression – Disable detailed SQL error messages that could help attackers identify vulnerabilities.
-- Database Activity Monitoring (DAM) – Continuously monitor and log SQL queries for suspicious patterns indicating an attack.
-- Limit Database Permissions – Ensure web applications only have read/write access to necessary tables, preventing unauthorized data modification.
-- Restrict Special Characters in User Input – Implement allowlists and disallow special characters like ', ", --, and ; in input fields.
-- Regular Security Audits & Code Reviews – Conduct code reviews and vulnerability assessments to detect insecure SQL code.
-- Rate Limiting & CAPTCHA – Implement rate limiting and CAPTCHA on login and search forms to mitigate automated SQL injection attacks.
-- Stored Procedures – Use stored procedures instead of direct SQL queries when executing database commands.
-- Enable Database Security Features – Utilize built-in database security features, such as query logging and access restrictions.
-- Encrypt Sensitive Data – Encrypt personally identifiable information (PII) and medical data to protect against data exposure.
-- Disable Unused Database Features – Turn off database features that are not needed, such as database shell access.
-- Incident Response Plan for SQL Injection – Develop a SQL injection response plan, including real-time monitoring, containment, and remediation strategies.
+# Controls Required:
+
+✔ Use Parameterized Queries & Prepared Statements → Prevent SQL injection by ensuring all database queries use parameterized inputs, eliminating the risk of malicious SQL execution.
+
+✔ Input Validation & Sanitization → Implement strict input validation (allowlists, character limits) to prevent malicious SQL commands from being executed.
+
+✔ Web Application Firewall (WAF) → Deploy a WAF to detect and block SQL injection attempts by filtering malicious requests in real-time.
+
+✔ Least Privilege Database Access → Restrict database permissions so that applications only have access to the data they need, preventing unauthorized modifications.
+
+✔ Error Handling & Suppression → Disable detailed SQL error messages to prevent attackers from learning database structures and exploiting vulnerabilities.
+
+✔ Database Activity Monitoring (DAM) & Logging → Monitor and log all database transactions to detect suspicious queries and prevent unauthorized access.
+
+✔ Regular Security Testing & Code Reviews → Conduct regular penetration testing, vulnerability scans, and code reviews to identify and fix SQLi risks before attackers can exploit them.
+

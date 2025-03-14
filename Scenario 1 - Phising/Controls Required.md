@@ -1,8 +1,15 @@
-*Controls Required:*
-- Regular security audits to detect vulnerabilities.
-- Patch management to ensure software is up-to-date.
-- Employee training on phishing awareness to prevent successful phishing attacks.
-- Web Application Firewall (WAF) to block malicious traffic.
-- Multi-factor authentication (MFA) to enhance authentication security.
-- Network traffic monitoring to detect suspicious activity.
-- Role-based access control (RBAC) to limit access to sensitive data and functionalities.
+# Controls Required:
+
+✔ Regular Security Audits → Detect vulnerabilities and weaknesses in the Solaris Health 360 application.
+
+✔ Patch Management → Ensure Solaris Health 360 and its underlying technologies are up to date.
+
+✔ Comprehensive Employee Training on Phishing Awareness → Educate users on recognizing and reporting phishing emails.
+
+✔ Web Application Firewall (WAF) → Monitor and filter incoming traffic for malicious activity.
+
+✔ Multi-Factor Authentication (MFA) → Strengthen authentication security to prevent unauthorized access.
+
+✔ Continuous Network Traffic Monitoring → Detect and respond to suspicious activity in CareConnect360's infrastructure.
+
+✔ Role-Based Access Control (RBAC) → Limit access to sensitive data and critical functionalities based on user roles.
