@@ -1,4 +1,4 @@
-# Kill Chain Attack Description: Solaris Health 360 Attack Scenario
+# Kill Chain Attack Description: CareConnect360 Phising Attack Scenario
 
 ## Stages of the Attack
 
