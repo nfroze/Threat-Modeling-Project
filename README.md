@@ -1,5 +1,4 @@
-# **Solaris CareConnect360 - Patient Management System**
-# **Threat Modeling Workshop Summary**
+# **Threat Modeling Workshop Summary for Solaris - CareConnect360 - Patient Management System**
 
 ## **Introduction**
 A **3-hour threat modelling workshop** was conducted to analyze **potential AI-driven cyber attacks** against the **web-facing healthcare application** **Solaris Care Connect 360**.
