@@ -1,31 +1,47 @@
+# **STRIDE Threat Model - CareConnect360**
+
+The **STRIDE threat model** helps identify potential security threats in **CareConnect360**, categorized into six key areas: **Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege**.
+
+## **STRIDE Threat Analysis Table**
+| **Threat**                | **Description** | **Potential Impact on CareConnect360** | **Mitigation Strategies** |
+|---------------------------|----------------|--------------------------------------|---------------------------|
+| **S - Spoofing** | Attacker impersonates a legitimate user or system | Unauthorized access to patient records, identity theft | Multi-Factor Authentication (MFA), strong password policies, OAuth2, JWT, and secure session management |
+| **T - Tampering** | Unauthorized modification of data | Medical record manipulation, incorrect diagnoses | Input validation, digital signatures, database integrity checks, logging & monitoring |
+| **R - Repudiation** | User denies performing an action, and no evidence exists | Malicious insider deletes logs to cover actions | Audit logging, SIEM (Security Information and Event Management), digital signatures |
+| **I - Information Disclosure** | Unauthorized access to sensitive data | Data breaches, leaked patient records, regulatory non-compliance (HIPAA) | Data encryption (TLS, AES), Role-Based Access Control (RBAC), tokenization |
+| **D - Denial of Service (DoS)** | Attacker disrupts system availability | Healthcare services unavailable, patient care delays | Rate limiting, Web Application Firewall (WAF), anomaly detection, CDN for traffic filtering |
+| **E - Elevation of Privilege** | Attacker gains unauthorized higher privileges | Unauthorized database access, data deletion | Role-Based Access Control (RBAC), least privilege access, secure IAM configurations |
+
+---
+
+## **STRIDE Threat Model Diagram - CareConnect360**
 ```mermaid
-graph TD
-    subgraph User Interaction
-        A[User] -->|HTTP Requests| B[Web Server]
+flowchart TD;
+    %% External Entities
+    Patients["👤 Patients"] -->|Login, Schedule, View Records| Frontend["🌐 Web App"]
+    HealthcareProviders["🏥 Providers"] -->|Manage Patients| Frontend
+    ThirdParty["🔗 Third-Party APIs"] -->|API Requests| Backend["⚙️ Backend System"]
+
+    %% System Components
+    Frontend -->|REST API Calls| Backend
+    Backend -->|Authenticate Users| Auth["🔐 Authentication"]
+    Backend -->|Query, Store Data| Database["🗄️ Patient Database"]
+
+    %% STRIDE Threat Mapping
+    subgraph STRIDE_Threats["⚠️ STRIDE Threat Model"]
+        Spoofing["🔓 Spoofing - Unauthorized Access"]
+        Tampering["⚠️ Tampering - Data Modification"]
+        Repudiation["📜 Repudiation - No Audit Trail"]
+        InfoDisclosure["🔍 Information Disclosure - Data Breach"]
+        DoS["⛔ Denial of Service - System Disruption"]
+        PrivilegeEscalation["🚀 Elevation of Privilege - Unauthorized Admin Access"]
     end
-    subgraph Web Server
-        B -->|Access| C[Database]
-        B -->|Receive Input| D[Input Validation]
-        B -->|Execute| E[Application Logic]
-    end
-    subgraph Database
-        C -->|Store/Fetch Data| F[Data Storage]
-    end
-    A((User)) -.->|Authentication| G[Authentication Mechanism]
-    B -.->|Logging| H[Logging Service]
-    A -.->|Access| I[Admin Panel]
-    I -.->|Controls| J[Admin Functionality]
-    %% Threats
-    T1([Spoofing: Spoof User Identity]) -.-> A
-    T2([Tampering: Alter HTTP Request]) -.-> B
-    T3([Repudiation: Deny Transactions]) -.-> H
-    T4([Information Disclosure: Data Leak]) -.-> F
-    T5([Denial of Service: Overload Server]) -.-> B
-    T6([Elevation of Privilege: Unauthorized Access]) -.-> I
-    %% Mitigations
-    M1([Mitigation: Strong Authentication]) --> T1
-    M2([Mitigation: HTTPS]) --> T2
-    M3([Mitigation: Non-repudiation Mechanisms]) --> T3
-    M4([Mitigation: Data Encryption]) --> T4
-    M5([Mitigation: Rate Limiting]) --> T5
+
+    %% Mapping Threats to Components
+    Auth -.->|Spoofing Risk| Spoofing
+    Database -.->|Tampering Risk| Tampering
+    Backend -.->|Repudiation Risk| Repudiation
+    Database -.->|Information Disclosure Risk| InfoDisclosure
+    Backend -.->|DoS Risk| DoS
+    Auth -.->|Privilege Escalation Risk| PrivilegeEscalation
     M6([Mitigation: Access Controls]) --> T
