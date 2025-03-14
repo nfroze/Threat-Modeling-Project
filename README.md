@@ -14,7 +14,7 @@ The workshop was attended by representatives from:
 The workshop covered **four key attack scenarios**:  
 1. **Phishing Attack**  
 2. **Ransomware Attack**  
-3. **Insider Threat**  
+3. **Insider Attack**  
 4. **SQL Injection Attack**  
 
 ## **Methodology**
@@ -36,9 +36,9 @@ mindmap
     Scope
       Phishing Attack
       Ransomware Attack
-      Insider Threat
+      Insider Attack
       SQL Injection Attack
     Methodology
       Cyber Kill Chain
-      MITRE ATT&CK Framework
+      MITRE ATTACK Framework
       STRIDE Threat Model
