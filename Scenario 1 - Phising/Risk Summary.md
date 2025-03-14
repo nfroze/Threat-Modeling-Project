@@ -1,7 +1,10 @@
-| Risk ID | Description                                         | Severity | Likelihood | Impact | Controls Required                                    |
-|---------|-----------------------------------------------------|----------|------------|--------|------------------------------------------------------|
-| R1      | Lack of encryption for sensitive data transmission | High     | Medium     | High   | Implement TLS/SSL for data encryption during transit |
-| R2      | Weak authentication mechanisms                     | Medium   | High       | High   | Implement multi-factor authentication (MFA)         |
-| R3      | Vulnerable third-party libraries                   | Medium   | High       | Medium | Regularly update and patch third-party dependencies |
-| R4      | Insufficient logging and monitoring                | High     | Medium     | High   | Implement comprehensive logging and monitoring      |
-| R5      | Lack of disaster recovery plan                     | High     | High       | High   | Develop and test a robust disaster recovery plan    |
+# **Risk Summary - Phishing Attack on CareConnect360**
+
+## **Risk Table**
+| **Risk ID** | **Description** | **Severity** | **Likelihood** | **Impact** | **Controls Required** |
+|------------|----------------|-------------|---------------|------------|----------------|
+| R1 | Employees fall victim to phishing emails, leading to credential theft. | High | High | High | Multi-Factor Authentication (MFA), Email Security (DMARC, SPF, DKIM), Security Awareness Training |
+| R2 | Phishing links deliver malware, granting attackers remote access. | High | Medium | High | Endpoint Protection, Web Filtering, Email Scanning |
+| R3 | Attackers spoof trusted domains to impersonate CareConnect360 personnel. | Medium | High | Medium | Anti-Spoofing Controls (DMARC, SPF, DKIM), User Verification Training |
+| R4 | Stolen credentials lead to unauthorized access to patient data. | High | High | High | Role-Based Access Control (RBAC), Privileged Access Management (PAM) |
+| R5 | Mass phishing campaigns result in account lockouts due to credential stuffing. | Medium | Medium | High | Account Lockout Policies, SIEM Monitoring, Rate Limiting |

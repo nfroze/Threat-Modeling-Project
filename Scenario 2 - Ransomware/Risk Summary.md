@@ -1,12 +1,10 @@
-| Risk ID | Description                                          | Severity | Likelihood | Impact | Controls Required                                        |
-|---------|------------------------------------------------------|----------|------------|--------|----------------------------------------------------------|
-| R1      | Lack of offline and immutable backups               | High     | High       | Critical | Implement regular encrypted backups stored offline      |
-| R2      | Weak endpoint protection and lack of EDR solutions  | High     | High       | High    | Deploy Endpoint Detection and Response (EDR) tools      |
-| R3      | Unpatched software and operating systems            | High     | High       | High    | Apply regular security updates and patch management     |
-| R4      | Lack of network segmentation                        | High     | Medium     | High    | Implement network segmentation to limit ransomware spread |
-| R5      | Inadequate email filtering and phishing protection  | Medium   | High       | High    | Use AI-driven email security and phishing detection     |
-| R6      | Weak identity and access controls                   | Medium   | High       | High    | Enforce least privilege access and MFA for all users    |
-| R7      | Lack of incident response plan                      | High     | Medium     | High    | Develop and test an organization-wide ransomware response plan |
-| R8      | Disabled or ineffective logging and monitoring      | High     | Medium     | High    | Implement SIEM and 24/7 security monitoring            |
-| R9      | Remote Desktop Protocol (RDP) exposure              | High     | High       | High    | Disable unused RDP, enforce strong authentication, and use VPN |
-| R10     | No protection against lateral movement              | High     | High       | Critical | Implement Zero Trust security and behavioral analytics  |
+# **Risk Summary - Ransomware Attack on CareConnect360**
+
+## **Risk Table**
+| **Risk ID** | **Description** | **Severity** | **Likelihood** | **Impact** | **Controls Required** |
+|------------|----------------|-------------|---------------|------------|----------------|
+| R1 | Ransomware encrypts critical patient records, disrupting healthcare operations. | High | High | High | Secure Backups (Offline & Cloud), Business Continuity Plan (BCP), Endpoint Detection & Response (EDR) |
+| R2 | Attackers use phishing to deliver ransomware via malicious attachments. | High | Medium | High | Email Scanning, Web Filtering, Security Awareness Training |
+| R3 | Ransomware exploits unpatched software vulnerabilities to spread laterally. | High | Medium | High | Patch Management, Vulnerability Scanning, Network Segmentation |
+| R4 | Attackers exfiltrate sensitive patient data before encryption (double extortion). | High | Medium | High | Data Loss Prevention (DLP), Network Segmentation, Encryption at Rest & In Transit |
+| R5 | Insider threats intentionally deploy ransomware within CareConnect360 systems. | Medium | Low | High | Least Privilege Access, Insider Threat Monitoring, Privileged Access Management (PAM) |
