@@ -26,7 +26,7 @@ The threat modelling workshop utilized:
 The result was a **comprehensive risk assessment** of the Solaris Care Connect 360 Patient Management System.
 
 ## **Controls Required**
-**Each attack scenario has a detailed list of mitigation strategies that must be put in place as soon as possible!
+Each attack scenario has a detailed list of mitigation strategies that must be put in place as soon as possible!
 
 ```mermaid
 mindmap

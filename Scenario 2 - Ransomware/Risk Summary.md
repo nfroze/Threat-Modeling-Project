@@ -1,4 +1,4 @@
-| Risk ID | Description                                          | Severity | Likelihood | Impact | Mitigation Plan                                          |
+| Risk ID | Description                                          | Severity | Likelihood | Impact | Controls Required                                        |
 |---------|------------------------------------------------------|----------|------------|--------|----------------------------------------------------------|
 | R1      | Lack of offline and immutable backups               | High     | High       | Critical | Implement regular encrypted backups stored offline      |
 | R2      | Weak endpoint protection and lack of EDR solutions  | High     | High       | High    | Deploy Endpoint Detection and Response (EDR) tools      |

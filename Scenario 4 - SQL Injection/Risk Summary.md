@@ -1,4 +1,4 @@
-| Risk ID | Description                                        | Severity | Likelihood | Impact | Mitigation Plan                                      |
+| Risk ID | Description                                        | Severity | Likelihood | Impact | Controls Required                                    |
 |---------|----------------------------------------------------|----------|------------|--------|------------------------------------------------------|
 | R1      | Unsanitized user input in web forms and APIs      | High     | High       | Critical | Implement input validation and use prepared statements |
 | R2      | Lack of parameterized queries                     | High     | High       | High    | Use parameterized queries and ORM frameworks         |

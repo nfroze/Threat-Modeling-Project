@@ -1,4 +1,4 @@
-| Risk ID | Description                                          | Severity | Likelihood | Impact | Mitigation Plan                                        |
+| Risk ID | Description                                          | Severity | Likelihood | Impact | Controls Required                                      |
 |---------|------------------------------------------------------|----------|------------|--------|--------------------------------------------------------|
 | R1      | Excessive user privileges                           | High     | High       | Critical | Implement Role-Based Access Control (RBAC) and Least Privilege Access |
 | R2      | Lack of user activity monitoring                    | High     | Medium     | High    | Deploy User and Entity Behavior Analytics (UEBA) to detect anomalies |

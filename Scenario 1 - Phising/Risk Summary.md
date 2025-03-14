@@ -1,4 +1,4 @@
-| Risk ID | Description                                         | Severity | Likelihood | Impact | Mitigation Plan                                      |
+| Risk ID | Description                                         | Severity | Likelihood | Impact | Controls Required                                    |
 |---------|-----------------------------------------------------|----------|------------|--------|------------------------------------------------------|
 | R1      | Lack of encryption for sensitive data transmission | High     | Medium     | High   | Implement TLS/SSL for data encryption during transit |
 | R2      | Weak authentication mechanisms                     | Medium   | High       | High   | Implement multi-factor authentication (MFA)         |
