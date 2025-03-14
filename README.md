@@ -28,9 +28,6 @@ The result was a **comprehensive risk assessment** of the Solaris Care Connect 3
 ```mermaid
 mindmap
   root((Threat Modelling Workshop))
-    Introduction
-      AI-driven cyber attack analysis
-      Focused on Solaris Care Connect 360
     Attendees
       Engineering Team
       Product Managers
@@ -44,6 +41,3 @@ mindmap
     Methodology
       Cyber Kill Chain
       MITRE ATT&CK
-      STRIDE Threat Model
-    Findings
-      Comprehensive Risk Assessment
