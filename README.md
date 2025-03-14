@@ -28,25 +28,29 @@ The result was a **comprehensive risk assessment** of the Solaris Care Connect 3
 ```mermaid
 mindmap
   root((Threat Modelling Workshop))
-    Introduction
-      Conducted to analyze AI-driven cyber attacks
-      Focused on Solaris Care Connect 360
-    Attendees
-      CareConnect Engineering Team
-      Product Managers
-      DevEx Engineers
-      DevSecOps Team
-    Scope
+    Workshop Details
+      Introduction
+        Focused on Solaris Care Connect 360
+        AI-driven cyber attack scenarios
+      Attendees
+        CareConnect Engineering Team
+        Product Managers
+        DevEx Engineers
+        DevSecOps Team
+    Attack Scenarios
       Phishing Attack
       Ransomware Attack
       Insider Threat
       SQL Injection Attack
     Methodology
-      Cyber Kill Chain
-      MITRE ATT&CK Framework
-      STRIDE Threat Model
+      Threat Analysis Models
+        Cyber Kill Chain
+        MITRE ATT&CK Framework
+        STRIDE Threat Model
     Findings
-      4 High-Risk Threats
-      3 Medium-Risk Threats
-      Identified control gaps
-      Risk assessment & mitigation plan
+      Risks Identified
+        4 High-Risk Threats
+        3 Medium-Risk Threats
+      Risk Assessment
+        Identified control gaps
+        Developed mitigation plan
