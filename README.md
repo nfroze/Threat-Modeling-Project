@@ -23,7 +23,7 @@ The threat modelling workshop utilized:
 - **MITRE ATT&CK Framework** → To identify **tactics, techniques, and procedures (TTPs)** for each attack
 - **STRIDE Threat Model** → To **assess control gaps** and prioritize mitigations for Care Connect 360 as a whole  
 
-The result was a **comprehensive risk assessment** of the Solaris Care Connect 360 Web App.
+The result was a **comprehensive risk assessment** of the Solaris Care Connect 360 Patient Management System.
 
 ```mermaid
 flowchart TD;
