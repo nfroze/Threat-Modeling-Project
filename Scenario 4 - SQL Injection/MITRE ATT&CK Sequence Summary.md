@@ -1,38 +1,50 @@
-# Summary MITRE ATT&CK Sequence
-# Attack Description
+# Summary - MITRE ATT&CK Sequence
+## Attack Description
+A **SQL Injection (SQLi) attack** occurs when an attacker injects **malicious SQL code** into input fields or API requests to **manipulate the backend database**. If successful, the attacker can **steal sensitive patient records, modify healthcare data, or execute administrative commands** on the database.
+
 ## Stages of the Attack
-### Origins
-The attack is initiated by an attacker leveraging a long history of cyber attack techniques. The attacker initiates the attack by identifying potential vulnerabilities in the target system.
-### Reconnaissance
-The attacker conducts research to identify vulnerabilities and potential targets. This includes gathering information about the target system’s infrastructure, software, and potential weaknesses.
+
+### **1. Reconnaissance**
+The attacker scans the **CareConnect360 web application** for **SQL injection vulnerabilities** in **search fields, login forms, and API requests**.
+
+### **2. Exploitation**
+By injecting **malicious SQL payloads**, the attacker bypasses **authentication** or **extracts sensitive medical records**.
+
+### **3. Data Exfiltration**
+The attacker **retrieves patient records, credentials, or financial data** from the **MariaDB database**.
+
+### **4. Data Manipulation**
+The attacker **modifies, deletes, or corrupts critical patient information**.
+
+### **5. Persistence & Covering Tracks**
+The attacker **creates backdoor accounts**, hides logs, or **alters system configurations** to maintain access.
+
 ```mermaid
 flowchart TD
+    %% Define colors for different attack stages
     style Reconnaissance fill:#F4D03F,stroke:#000,stroke-width:2px
-    style Weaponization fill:#F5B041,stroke:#000,stroke-width:2px
-    style Attack fill:#EB984E,stroke:#000,stroke-width:2px
-    style Exploitation fill:#E59866,stroke:#000,stroke-width:2px
-    style Installation fill:#DC7633,stroke:#000,stroke-width:2px
-    style Command_Control fill:#CA6F1E,stroke:#000,stroke-width:2px
-    style Actions_Objectives fill:#BA4A00,stroke:#000,stroke-width:2px
+    style Exploitation fill:#F5B041,stroke:#000,stroke-width:2px
+    style Data_Exfiltration fill:#EB984E,stroke:#000,stroke-width:2px
+    style Data_Manipulation fill:#E59866,stroke:#000,stroke-width:2px
+    style Persistence fill:#DC7633,stroke:#000,stroke-width:2px
     style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
-    style Controls fill:#82E0AA,stroke:#000,stroke-width:2px
-    Reconnaissance[Reconnaissance] -->|Identify Solari Health 360 app| Weaponization[Weaponization]
-    Weaponization[Weaponization] -->|Craft exploit for known vulnerabilities| Delivery[Delivery]
-    Delivery[Delivery] -->|Deploy phishing campaign targeting app users| Exploitation[Exploitation]
-    Exploitation[Exploitation] -->|Trick users into downloading malware| Installation[Installation]
-    Installation[Installation] -->|Gain access to app backend| Command_Control[Command and Control]
-    Command_Control[Command and Control] -->|Establish communication with C&C server| Actions_Objectives[Actions on Objectives]
-    Actions_Objectives[Actions on Objectives] -->|Steal sensitive health data| Actions_Objectives[Actions on Objectives]
-    Actions_Objectives[Actions on Objectives] -->|Manipulate patient records| Actions_Objectives[Actions on Objectives]
+
+    %% Attack Sequence
+    Reconnaissance[Reconnaissance] -->|Scan CareConnect360 for SQL Injection vulnerabilities| Exploitation[Exploitation]
+    Exploitation -->|Inject malicious SQL payload into input fields/API requests| Data_Exfiltration[Data Exfiltration]
+    Data_Exfiltration -->|Retrieve sensitive patient records| Data_Manipulation[Data Manipulation]
+    Data_Manipulation -->|Modify, delete, or corrupt patient records| Persistence[Persistence]
+    Persistence -->|Create backdoor admin accounts, hide logs| Persistence
+
+    %% MITRE ATT&CK Techniques
     subgraph MITRE_Attack[MITRE ATT&CK Techniques]
     style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
-    Delivery -->|T1566.001 - Phishing| MITRE
+    Reconnaissance -->|T1595 - Active Scanning| MITRE
     Exploitation -->|T1190 - Exploit Public-Facing Application| MITRE
     Exploitation -->|T1059.003 - Command and Scripting Interpreter| MITRE
-    Installation -->|T1106 - Execution through API| MITRE
-    Command_Control -->|T1102 - Web Service| MITRE
-    Command_Control -->|T1105 - Ingress Tool Transfer| MITRE
-    Actions_Objectives -->|T1136 - Create Account| MITRE
-    Actions_Objectives -->|T1574 - Hijack Execution Flow| MITRE
-    Actions_Objectives -->|T1565.001 - Data Manipulation| MITRE
+    Data_Exfiltration -->|T1041 - Exfiltration Over C2 Channel| MITRE
+    Data_Manipulation -->|T1565.001 - Data Manipulation| MITRE
+    Persistence -->|T1136 - Create Account| MITRE
+    Persistence -->|T1098 - Account Manipulation| MITRE
+    Persistence -->|T1070 - Indicator Removal on Host| MITRE
     end
