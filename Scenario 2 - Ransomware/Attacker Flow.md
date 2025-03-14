@@ -1,30 +1,36 @@
 ```mermaid
-  sequenceDiagram
+sequenceDiagram
     participant Attacker
-    participant SolariHealthApp
-    participant CnCServer
-    participant BackendServer
     participant User
+    participant CareConnect360
+    participant BackendServer
+    participant Database
+    participant CnCServer
+    participant PaymentGateway
+    
     activate Attacker
-    Attacker->>SolariHealthApp: Identify Solari Health 360 app
-    SolariHealthApp->>Attacker: Application identified
+    Attacker->>User: Sends phishing email with malicious attachment/link
+    User->>Attacker: Clicks on attachment/link (Payload Executed)
     deactivate Attacker
-    activate Attacker
-    Attacker->>SolariHealthApp: Craft exploit for known vulnerabilities
-    SolariHealthApp->>Attacker: Exploit crafted
-    deactivate Attacker
-    activate Attacker
-    Attacker->>SolariHealthApp: Deploy phishing campaign targeting app users
-    SolariHealthApp->>User: Phishing email sent
+    
     activate User
-    User->>SolariHealthApp: Clicks on malicious link/download attachment
-    SolariHealthApp->>User: Malware downloaded
+    User->>CareConnect360: Unknowingly executes malicious file
+    CareConnect360->>BackendServer: Malware spreads across network
     deactivate User
-    deactivate Attacker
+
+    activate BackendServer
+    BackendServer->>Database: Encrypts critical patient records
+    BackendServer->>CnCServer: Contacts Command & Control (C2) server
+    CnCServer->>BackendServer: Issues encryption keys and commands
+    deactivate BackendServer
+
     activate Attacker
-    Attacker->>SolariHealthApp: Trick users into downloading malware
-    SolariHealthApp->>BackendServer: Malicious payload executed
-    BackendServer->>CnCServer: Communication established
-    CnCServer->>BackendServer: Commands issued
-    BackendServer->>CnCServer: Actions performed
+    Attacker->>CareConnect360: Displays ransom note demanding payment
+    CareConnect360->>PaymentGateway: Attempts to negotiate or pay ransom
+    PaymentGateway->>Attacker: Cryptocurrency transaction processed
     deactivate Attacker
+
+    activate BackendServer
+    BackendServer->>CnCServer: Requests decryption key (if ransom paid)
+    CnCServer->>BackendServer: Decryption key sent (Possibly fake)
+    deactivate BackendServer
