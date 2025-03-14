@@ -1,10 +1,33 @@
 # Summary MITRE ATT&CK Sequence
-# Attack Description
+## Attack Description
+A phishing attack on CareConnect360 involves an attacker impersonating a trusted entity to deceive employees into revealing credentials or downloading malware. The attack often relies on social engineering tactics to exploit human error, gaining unauthorized access to sensitive healthcare data and internal systems. Once credentials are stolen or malware is deployed, the attacker can move laterally within the network, escalate privileges, and execute further attacks such as data theft or ransomware deployment.
+
 ## Stages of the Attack
-### Origins
-The attack is initiated by an attacker leveraging a long history of cyber attack techniques. The attacker initiates the attack by identifying potential vulnerabilities in the target system.
-### Reconnaissance
-The attacker conducts research to identify vulnerabilities and potential targets. This includes gathering information about the target system’s infrastructure, software, and potential weaknesses.
+
+### 1. Origins
+The attack is initiated by an attacker leveraging a long history of cyber attack techniques. The attacker begins by identifying CareConnect360 as a target due to its sensitive health data and publicly facing infrastructure.
+
+### 2. Reconnaissance
+The attacker gathers employee email addresses, domain information, and technology stack details to craft a targeted phishing campaign.
+
+### 3. Weaponization
+A malicious email is created, containing either a fake login page that mimics CareConnect360's authentication portal or a malware-laden attachment disguised as an urgent document.
+
+### 4. Delivery
+The attacker sends phishing emails to CareConnect360 employees. These emails appear to come from trusted sources, such as IT support, management, or healthcare partners.
+
+### 5. Exploitation
+A user clicks on the malicious link or opens the infected attachment, leading to credential theft if a login portal is used or malware execution if the attachment is opened.
+
+### 6. Installation
+The attacker gains access through stolen credentials or installs malware to maintain persistence.
+
+### 7. Command & Control (C2)
+If malware is present, it communicates with an external server, allowing the attacker to execute commands remotely.
+
+### 8. Actions on Objectives
+The attacker can now exfiltrate sensitive patient records, escalate privileges for deeper system access, or deploy additional attacks, such as ransomware.
+
 ```mermaid
 flowchart TD
     style Reconnaissance fill:#F4D03F,stroke:#000,stroke-width:2px
